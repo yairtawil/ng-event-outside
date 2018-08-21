@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  clickCount = 0;
+  count = 0;
+  dudu() {
+    this.count = this.count + 1;
+  }
 }

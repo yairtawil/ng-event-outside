@@ -1,0 +1,17 @@
+:host {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+div {
+  width: 50vw;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: bisque;
+}
+div:hover {
+  background: antiquewhite;
+}
