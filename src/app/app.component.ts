@@ -6,10 +6,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
-  clickCount = 0;
-  count = 0;
-  dudu() {
-    this.count = this.count + 1;
-  }
+  events = [
+    {
+      listener: 'click',
+      class: 'primary',
+      show: false
+    },
+    {
+      listener: 'pointermove',
+      class: 'success',
+      show: false
+    },
+    {
+      listener: 'mousedown',
+      class: 'info',
+      show: false
+    },
+    {
+      listener: 'mousewheel',
+      class: 'danger',
+      show: false
+    }
+  ];
 }

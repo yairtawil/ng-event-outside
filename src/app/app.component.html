@@ -1,14 +1,18 @@
+<div class="btn-cont" *ngFor="let event of events">
+  <button type="button" (click)="event.show = !event.show" #triggerButton
+          class="btn btn-{{event.class}}">{{event.listener}}
+  </button>
 
-count: {{clickCount}}
-<div (ngEventOutside)="clickCount = clickCount + 1">
-  Click Outside Me!
+  <div class="popover fade bottom in show"
+       *ngIf="event.show"
+       [eventListener]="event.listener"
+       [excludes]="[triggerButton]"
+       (ngEventOutside)="event.show = false">
 
-  count: {{clickCount}}
+    <div class="arrow"></div>
+    <h3 class="popover-title">{{event.listener}}</h3>
+    <div class="popover-content">Some content</div>
+  </div>
 </div>
 
-count: {{count}}
-<div (ngEventOutside)="count = count + 1" eventListener="pointermove">
-  Mousedown Outside Me!
 
-  count: {{count}}
-</div>
