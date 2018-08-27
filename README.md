@@ -13,15 +13,15 @@ npm install ng-event-outside
 
 ## Usage
 
-Add `NgEventOutside` to your list of module imports:
+Add `NgEventOutsideModule` to your list of module imports:
 
 ```typescript
-import { NgEventOutsideModule  } from 'ng-event-outside';
+import { NgEventOutsideModule } from 'ng-event-outside';
 
 @NgModule({
   imports: [
     ...
-    NgEventOutside
+    NgEventOutsideModule
 ],
 ...
 })
