@@ -1,27 +1,61 @@
-# NgEventOutside
+# ng-event-outside
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+[![NPM](https://nodei.co/npm/ng-event-outside.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/ng-event-outside/)
 
-## Development server
+**[Demo](https://yairtawil.github.io/ng-event-outside/)**
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Installation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```shell
+npm install ng-event-outside
+```
 
-## Build
+## Usage
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Add `NgEventOutside` to your list of module imports:
 
-## Running unit tests
+```typescript
+import { NgEventOutsideModule  } from 'ng-event-outside';
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+@NgModule({
+  imports: [
+    ...
+    NgEventOutside
+],
+...
+})
+export class AppModule { }
 
-## Running end-to-end tests
+```
+Use the `ngEventOutside` directive in your html templates:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```html
+  <button (click)="toggleShow()"> Show <button>
+  <div ngIf="*show" (ngEventOutside)="onEventOutside($event)"></div>
+```
 
-## Further help
+```typescript
+export class AppComponent {
+  toggleShow() {
+    this.show = !this.show;
+  }
+  
+  onEventOutside($event) {
+    this.show = false;
+  }
+}
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### Outputs
+name | description
+--- | --- 
+```(ngEventOutside)``` | This event fires when `[eventListener]` invoked outside.     
+
+### Inputs
+Name | Type | Default | Description
+--- | --- | --- | ---
+`[excludes]` | ```HTMLElement[]``` | ```[]``` | An array of excluded elements.  
+`[eventListener]` | ```string``` | 'click' | A String that specifies the name of the HTML DOM event.  
+
+  
